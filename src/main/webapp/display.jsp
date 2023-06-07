@@ -11,13 +11,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<sql:setDataSource var="db" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/mario" user="root" password="Swaraj@2001"/>
-	
-	<sql:query var="rs" dataSource="${db}">Select * from gadgets </sql:query>
-	
-	<c:forEach items="${rs.rows}" var="gadget">
-		<c:out value="${gadget.gid}"></c:out> : <c:out value="${gadget.gname }"></c:out> : <c:out value="${gadget.price}"></c:out> <br/>
+	<c:set var="str" value="Swaraj Kalbande is student of VIT"/>
+	Length : ${fn:length(str)} <br/>
+	index: ${ fn:indexOf(str, "is") }<br/>
+	is there: ${ fn:contains(str,"Java")}<br/>
+	<c:if test="${ fn:contains(str,'Swaraj')}" >
+		Swaraj is there in str.
+	</c:if>
+	<br/>
+	<c:if test="${ fn:endsWith(str,'VIT')}" >
+		You are right sir.
+	</c:if>
+	<br/>
+	<c:forEach items="${fn:split(str,' ')}" var="s">
+		${s}
+		<br>
 	</c:forEach>
-
 </body>
 </html>
