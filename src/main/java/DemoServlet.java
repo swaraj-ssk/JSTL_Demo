@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 public class DemoServlet extends HttpServlet {
 	protected void doGet( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Student> studs = Arrays.asList(new Student(1,"Navin"), new Student(2, "Arti"), new Student(3,"Swaraj"));
-			
-		request.setAttribute("students", studs);
+//		List<Student> studs = Arrays.asList(new Student(1,"Navin"), new Student(2, "Arti"), new Student(3,"Swaraj"));
+//			
+//		request.setAttribute("students", studs);
 		RequestDispatcher rd = request.getRequestDispatcher("display.jsp");
 		rd.forward(request, response);
+		
 	}
 
 }
